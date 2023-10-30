@@ -1,0 +1,5 @@
+nbdev==2.3.11
+jupyter
+fastai
+openai
+pre-commit

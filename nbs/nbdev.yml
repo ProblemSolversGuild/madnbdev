@@ -2,8 +2,8 @@ project:
   output-dir: _docs
 
 website:
-  title: "madpy"
-  site-url: "https://kevinbird15.github.io/madpy"
+  title: "madnbdev"
+  site-url: "https://kevinbird15.github.io/madnbdev"
   description: "A library that will change the world"
   repo-branch: main
-  repo-url: "https://github.com/kevinbird15/madpy"
+  repo-url: "https://github.com/kevinbird15/madnbdev"
