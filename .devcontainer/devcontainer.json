@@ -7,7 +7,7 @@
 		"dockerfile": "Dockerfile",
 		"context": ".."
 	},
-	// "containerUser": "1000",
+	"containerUser": "1000",
 	// "image": "jupyter/base-notebook:notebook-7.0.2"
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
@@ -17,7 +17,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "jupyter notebook",
+	"postCreateCommand": "jupyter notebook --NotebookApp.token='' --NotebookApp.password=''",
 
 	// Configure tool-specific properties.
 	// "customizations": {},
@@ -26,12 +26,12 @@
 	// "remoteUser": "root"
 	"mounts": [
         "source=projectname-bashhistory,target=/commandhistory,type=volume",
-        "source=C:\\Users\\kevin\\.ssh,target=/home/${localEnv:USER}/.ssh,type=bind,consistency=cached",
+        "source=C:\\Users\\kevin\\.ssh,target=/home/dev/.ssh,type=bind,consistency=cached",
     ],
 	"runArgs": [
 		// "--ipc=host",
         "--env-file=.devcontainer/.env",
         "--gpus",
-        "all"
+		"all"
     ],
 }

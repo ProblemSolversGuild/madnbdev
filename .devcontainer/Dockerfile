@@ -40,8 +40,10 @@ RUN pip install -r requirements.txt
 RUN nbdev_install_quarto
 
 USER ${USER}
-ENV git config user.name ${GITHUB_NAME}
-ENV git config user.email ${GITHUB_EMAIL}
+ARG GITHUB_NAME
+ARG GITHUB_EMAIL
+# RUN git config --global user.name ${GITHUB_NAME}
+# RUN git config --global user.email ${GITHUB_EMAIL}
 # USER root
 ENV PATH "${PATH}:/home/${USER}/.local/bin"
 
