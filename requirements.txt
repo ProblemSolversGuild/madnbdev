@@ -1,4 +1,4 @@
-nbdev==2.3.11
+nbdev==2.3.13
 jupyter
 fastai
 openai
