@@ -3,12 +3,13 @@
 # %% auto 0
 __all__ = ['arrange_talk']
 
-# %% ../nbs/00_introduction.ipynb 20
+# %% ../nbs/00_introduction.ipynb 21
 import datetime
 
-# %% ../nbs/00_introduction.ipynb 22
+# %% ../nbs/00_introduction.ipynb 23
 def arrange_talk(speaker:str, # The name of the speaker
                  title:str, # The title of the talk that will be given
                  talk_date:datetime.date=datetime.date.today() # The date that the speaker will be giving the talk
                 ) -> str: # The output is a string that gives a human readable output of the information provided
     return f"{speaker} will be talking about {title} on {talk_date}"
+    
