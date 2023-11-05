@@ -19,4 +19,5 @@ d = { 'settings': { 'branch': 'main',
                                                                            'madnbdev/agent.py'),
                                 'madnbdev.agent.Speaker.talk': ('api_integration.html#speaker.talk', 'madnbdev/agent.py'),
                                 'madnbdev.agent.create_message': ('api_integration.html#create_message', 'madnbdev/agent.py')},
-            'madnbdev.intro': {'madnbdev.intro.arrange_talk': ('introduction.html#arrange_talk', 'madnbdev/intro.py')}}}
+            'madnbdev.basic': {'madnbdev.basic.arrange_talk': ('basic_example.html#arrange_talk', 'madnbdev/basic.py')},
+            'madnbdev.intro': {'madnbdev.intro.do_something': ('introduction.html#do_something', 'madnbdev/intro.py')}}}

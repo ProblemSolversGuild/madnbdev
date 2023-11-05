@@ -3,4 +3,5 @@ website:
     contents:
       - index.ipynb
       - 00_introduction.ipynb
-      - 01_API_Integration.ipynb
+      - 01_basic_example.ipynb
+      - 02_API_Integration.ipynb
