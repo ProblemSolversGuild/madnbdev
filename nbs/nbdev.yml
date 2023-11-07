@@ -3,7 +3,7 @@ project:
 
 website:
   title: "madnbdev"
-  site-url: "https://kevinbird15.github.io/madnbdev"
+  site-url: "https://ProblemSolversGuild.github.io/madnbdev"
   description: "A library that will change the world"
   repo-branch: main
-  repo-url: "https://github.com/kevinbird15/madnbdev"
+  repo-url: "https://github.com/ProblemSolversGuild/madnbdev"

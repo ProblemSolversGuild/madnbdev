@@ -31,7 +31,7 @@ def create_message(role_type:Role, # Whether this message is the system, user, o
                   ):
     return {"role":role_type.value, "content": content}
 
-# %% ../nbs/02_API_Integration.ipynb 16
+# %% ../nbs/02_API_Integration.ipynb 21
 class Speaker:
     "A speaker is somebody that will talk about things!"
     def __init__(self, name:str, backstory:str=None, mannerisms:str=None, relationships:dict=None, model_engine="gpt-3.5-turbo"): # Test
@@ -42,7 +42,7 @@ class Speaker:
         self.setup_universe()
 
     def setup_universe(self):
-        self.messages.append(create_message(Role.SYSTEM, f'you are one of a handful of members in an improv group in front of a live audience.'))
+        # self.messages.append(create_message(Role.SYSTEM, f'you are one of a handful of members in an improv group in front of a live audience.'))
         self.messages.append(create_message(Role.SYSTEM, f'Your message should be no more than a paragraph'))
         self.messages.append(create_message(Role.SYSTEM, f'Responses should like like this YOUR_NAME: Response to the previous messages.'))
         self.messages.append(create_message(Role.SYSTEM, f'If needed you can do actions by putting them in asterisks'))

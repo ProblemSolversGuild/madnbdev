@@ -2,8 +2,8 @@
 
 d = { 'settings': { 'branch': 'main',
                 'doc_baseurl': '/madnbdev',
-                'doc_host': 'https://kevinbird15.github.io',
-                'git_url': 'https://github.com/kevinbird15/madnbdev',
+                'doc_host': 'https://ProblemSolversGuild.github.io',
+                'git_url': 'https://github.com/ProblemSolversGuild/madnbdev',
                 'lib_path': 'madnbdev'},
   'syms': { 'madnbdev.agent': { 'madnbdev.agent.Role': ('api_integration.html#role', 'madnbdev/agent.py'),
                                 'madnbdev.agent.Speaker': ('api_integration.html#speaker', 'madnbdev/agent.py'),
