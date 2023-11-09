@@ -3,7 +3,7 @@
 # %% auto 0
 __all__ = ['do_something']
 
-# %% ../nbs/00_introduction.ipynb 21
+# %% ../nbs/00_introduction.ipynb 23
 def do_something(var1:str, # A description of var1
                  var2:int=42 # Including the types as well
                 ) -> str: # Describe the thing that is being returned
