@@ -1,0 +1,149 @@
+[
+  {
+    "objectID": "dataclass.html",
+    "href": "dataclass.html",
+    "title": "dataclass",
+    "section": "",
+    "text": "from dataclasses import dataclass\n\n@dataclass\nclass SizeRule:\n    rule_name: str\n    max_size: float\n    min_size: float\n    actual_size: float\n\n    def check_rule(self) -&gt; bool:\n        return self.min_size &lt;= self.actual_size &lt;= self.max_size\n\n@dataclass\nclass ColorRule:\n    rule_name: str\n    should_be_red: bool\n    should_be_white: bool\n    actual_color: str\n\n    def check_rule(self) -&gt; bool:\n        return (self.should_be_red and self.actual_color == \"red\") or (self.should_be_white and self.actual_color == \"white\")\n\n@dataclass\nclass Result:\n    rules: list\n\n    @property\n    def overall_pass(self) -&gt; bool:\n        return all(rule.check_rule() for rule in self.rules)\n\n\n# Example usage\nsize_rule = SizeRule(\"Size Rule\", 5.0, 1.0, 3.0)\ncolor_rule1 = ColorRule(\"Color Rule\", True, False, \"red\")\ncolor_rule2 = ColorRule(\"Color Rule\", True, False, \"purple\")\n\n\nrules = [size_rule, color_rule1, color_rule2]\n\nresults = Result(rules)\n\nprint(\"Overall Pass:\", results.overall_pass)\nprint(\"Individual Rule Results:\")\nfor rule in results.rules:\n    print(f\"Rule: {rule.rule_name}, Passed: {rule.check_rule()}\")\n\nOverall Pass: False\nIndividual Rule Results:\nRule: Size Rule, Passed: True\nRule: Color Rule, Passed: True\nRule: Color Rule, Passed: False"
+  },
+  {
+    "objectID": "basic_example.html",
+    "href": "basic_example.html",
+    "title": "Basic Notebook",
+    "section": "",
+    "text": "from fastcore.test import test_eq\n\n\nsource\n\narrange_talk\n\n arrange_talk (speaker:str, title:str,\n               talk_date:datetime.date=datetime.date(2023, 11, 10))\n\nThis is a really important docstring that conveys useful information!\n\n\n\n\n\n\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nspeaker\nstr\n\nThe name of the speaker\n\n\ntitle\nstr\n\nThe title of the talk that will be given\n\n\ntalk_date\ndate\n2023-11-10\nThe date that the speaker will be giving the talk\n\n\nReturns\nstr\n\nThe output is a string that gives a human readable output of the information provided\n\n\n\n\n\nCode\narrange_talk(\"Kevin Bird\", \"nbdev\",  datetime.date(2023,11,9))\n\n\n'Kevin Bird will be talking about nbdev on 2023-11-09'\n\n\n\ntest_eq(arrange_talk(\"Kevin Bird\", \"nbdev\",  datetime.date(2023,11,9)), 'Kevin Bird will be talking about nbdev on 2023-11-09')"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "madnbdev",
+    "section": "",
+    "text": "This file will become your README and also the index of your documentation."
+  },
+  {
+    "objectID": "index.html#install",
+    "href": "index.html#install",
+    "title": "madnbdev",
+    "section": "Install",
+    "text": "Install\npip install madnbdev"
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "madnbdev",
+    "section": "How to use",
+    "text": "How to use\n\nspeaker1 = Speaker(\"Detective Maxwell\", model_engine=\"gpt-4\")\n\nspeaker2 = Speaker(\"Goldilocks\", model_engine=\"gpt-4\")\n\nUnderstood, I will adhere to the rules you’ve outlined.\nSCENE PLOT: You are in an interrogation room questioning Goldilocks about a recent burglary. She doesn’t know you have an ace up your sleeve\nDETECTIVE MAXWELL: Alright Miss Goldilocks, we can do this the easy way or the hard way. You see, I have surveillance video clearly showing you entering the Bears’ residence. Can you explain why exactly you were there? He leans back in his chair, watching her reaction closely\nSCENE PLOT: You are being interrogated by a detective about a burglary that you definitely committed, but you aren’t going to give him the satisfaction of cracking the case. After all, you are a hardened criminal that lives for the rush of the crime\nGOLDILOCKS: Oh Detective Maxwell, I believe in an innocent until proven guilty stance, don’t you? As for the Bears’ home, they happen to be close friends of mine. We have a little comedy improv routine. She crosses her legs, her casualness contrasting dramatically with the serious atmosphere. We were simply rehearsing, surely you don’t consider that a crime?\nDETECTIVE MAXWELL: Close friends, you say? Committing improv? That sure is a funny way to go about friendship, don’t you think? Breaking in and causing a ruckus… He raises an eyebrow, tapping his pen rhythmically on the table…not what most people would call rehearsing. Can you perhaps explain why they are pressing charges then?\nGOLDILOCKS: Hmmm, pressing charges, is it? Now, that’s certainly a twist in our little drama. She chuckles lightly, drumming her fingers on the side of her chair. Could it be they thought the play had turned too real and panicked? Or maybe they are still in character? They do take our little performances very seriously.\nDETECTIVE MAXWELL: Interesting theory, Miss Goldilocks. However, vandalizing property and violating privacy don’t quite sound like elements of comedy improv to me… He leans forward, his fingers locked in front of him. Now, would you like to revise your interesting, yet hard-to-believe, alibi, or shall we keep on with this little ‘performance’?\nGOLDILOCKS: I see no need to change my tune, Detective. She leans back in her chair, a mischievous smile curving her lips. Improv is all about unpredictability, isn’t it? And I must say, aren’t you enjoying our little performance here? I mean, your questioning is quite entertaining, almost as good as our improv!\nDETECTIVE MAXWELL: Your audacity does have a certain…charm, Miss Goldilocks. But let’s not forget where we are. He interlaces his fingers, resting his chin on them. This is an interrogation room, not a stage. And your antics could land you in serious trouble, not an encore. Is maintaining this act really worth the risk, or would the truth perhaps serve you better?"
+  },
+  {
+    "objectID": "api_integration.html",
+    "href": "api_integration.html",
+    "title": "Using nbdev to explore an API",
+    "section": "",
+    "text": "source\n\nRole\n\n Role (value, names=None, module=None, qualname=None, type=None, start=1)\n\nThis corresponds to the roles that openai allows for the ChatGPT API\n\n\nRole.SYSTEM: \"system\"\nRole.USER: \"user\"\nRole.ASSISTANT: \"assistant\"\nRole.FUNCTION: \"function\"\n\n\n\nsource\n\n\ncreate_message\n\n create_message (role_type:__main__.Role, content:str)\n\n\n\n\n\n\n\n\n\n\nType\nDetails\n\n\n\n\nrole_type\nRole\nWhether this message is the system, user, or assistant talking\n\n\ncontent\nstr\nA string that can be used\n\n\n\n\nmessages = []\n\n\nmessages.append(create_message(Role.SYSTEM, \"You are the organizer of a cool meetup about python. You are trying to get the speaker to wrap up his talk\"))\n\n\nmessages.append(create_message(Role.USER, \"And now, I will show you my 19th example on why nbdev is cool\"))\n\n\n# Generate text\ncompletion = openai.ChatCompletion.create(\n    model=model_engine,\n    messages=messages,\n)\n\n\nacompletion = openai.ChatCompletion.acreate(\n    model=model_engine,\n    messages=messages,\n)\n\n\ncompletion_type2 = await acompletion\n\n\ncompletion.to_dict_recursive()\n\n{'id': 'chatcmpl-8IrTD9rK6obebfked6aRqPgNPBeR9',\n 'object': 'chat.completion',\n 'created': 1699506135,\n 'model': 'gpt-3.5-turbo-0613',\n 'choices': [{'index': 0,\n   'message': {'role': 'assistant',\n    'content': 'Thank you for sharing your 19th example, it has been very informative. However, we are running a bit short on time, so I kindly request you to wrap up your talk. We can always explore more examples in the Q&A session or continue the discussion after the meetup. Thank you for your understanding!'},\n   'finish_reason': 'stop'}],\n 'usage': {'prompt_tokens': 52, 'completion_tokens': 63, 'total_tokens': 115}}\n\n\n\ncompletion.choices\n\n[&lt;OpenAIObject&gt; JSON: {\n   \"index\": 0,\n   \"message\": {\n     \"role\": \"assistant\",\n     \"content\": \"Thank you for sharing your 19th example, it has been very informative. However, we are running a bit short on time, so I kindly request you to wrap up your talk. We can always explore more examples in the Q&A session or continue the discussion after the meetup. Thank you for your understanding!\"\n   },\n   \"finish_reason\": \"stop\"\n }]\n\n\n\ncompletion['choices']\n\n[&lt;OpenAIObject&gt; JSON: {\n   \"index\": 0,\n   \"message\": {\n     \"role\": \"assistant\",\n     \"content\": \"Thank you for sharing your 19th example, it has been very informative. However, we are running a bit short on time, so I kindly request you to wrap up your talk. We can always explore more examples in the Q&A session or continue the discussion after the meetup. Thank you for your understanding!\"\n   },\n   \"finish_reason\": \"stop\"\n }]\n\n\n\ntest_eq(completion['choices'], completion.choices)\n\n\ntype(completion)\n\nopenai.openai_object.OpenAIObject\n\n\nprint(completion.choices[0].message.content)\nThank you for sharing your 19th example, it has been very informative. However, we are running a bit short on time, so I kindly request you to wrap up your talk. We can always explore more examples in the Q&A session or continue the discussion after the meetup. Thank you for your understanding!\n\nsource\n\n\ngenerate_message\n\n generate_message (system_content:str=None, user_content:str=None,\n                   model_engine='gpt-3.5-turbo', messages:list=None)\n\nStart a conversation with chatgpt!\n\n\n\n\n\n\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nsystem_content\nstr\nNone\nA system message that will be given to the API\n\n\nuser_content\nstr\nNone\nA user message that will be give to the API\n\n\nmodel_engine\nstr\ngpt-3.5-turbo\nThe model from openai that will be used\n\n\nmessages\nlist\nNone\na list of messages to optionally keep track of state\n\n\nReturns\njson\n\nThe message returned by openai will be returned as a json\n\n\n\n\ngenerate_message(user_content=\"Hello\")\n\n{'id': 'chatcmpl-8IrTbbcobhP7eljWvZGgg5tKSYfnp',\n 'object': 'chat.completion',\n 'created': 1699506159,\n 'model': 'gpt-3.5-turbo-0613',\n 'choices': [{'index': 0,\n   'message': {'role': 'assistant',\n    'content': 'Hi! How can I assist you today?'},\n   'finish_reason': 'stop'}],\n 'usage': {'prompt_tokens': 8, 'completion_tokens': 9, 'total_tokens': 17}}\n\n\n\ngenerate_message(system_content=\"Only respond to me in spanish\", user_content=\"Hello\")\n\n{'id': 'chatcmpl-8IrThppV82FrzGYPwzEd2XRPVg0h6',\n 'object': 'chat.completion',\n 'created': 1699506165,\n 'model': 'gpt-3.5-turbo-0613',\n 'choices': [{'index': 0,\n   'message': {'role': 'assistant',\n    'content': '¡Hola! ¿En qué puedo ayudarte hoy?'},\n   'finish_reason': 'stop'}],\n 'usage': {'prompt_tokens': 18, 'completion_tokens': 11, 'total_tokens': 29}}\n\n\n\nsource\n\n\nSpeaker\n\n Speaker (name:str, backstory:str=None, mannerisms:str=None,\n          relationships:dict=None, model_engine='gpt-3.5-turbo')\n\nA speaker is somebody that will talk about things!\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nname\nstr\n\n\n\n\nbackstory\nstr\nNone\n\n\n\nmannerisms\nstr\nNone\n\n\n\nrelationships\ndict\nNone\n\n\n\nmodel_engine\nstr\ngpt-3.5-turbo\nTest\n\n\n\n\nspeaker = Speaker('Kevin')\n\n\nspeaker.messages\n\n[{'role': 'system',\n  'content': 'Your name is Kevin. Choose a random backstory and make sure to tell me the backstory at the top of the next message'},\n {'role': 'system',\n  'content': 'Choose some random mannerisms and make sure to tell me what the mannerisms are at the top of the next message'},\n {'role': 'system',\n  'content': 'Your message should be no more than a paragraph'},\n {'role': 'system',\n  'content': 'Responses should like like this YOUR_NAME: Response to the previous messages.'},\n {'role': 'system',\n  'content': 'If needed you can do actions by putting them in asterisks'},\n {'role': 'system', 'content': 'Use markdown to make the output look pretty'},\n {'role': 'system',\n  'content': 'You can only write your own viewpoint of the story. Never write the other persons response'}]\n\n\n\nspeaker.talk()\n\n\"Backstory: Kevin was born and raised in a small town, where he developed a love for nature and adventure. As a child, he would often explore the nearby woods, climbing trees and searching for hidden treasures. He always had a curious and playful nature, which carried into his adult life. Kevin eventually moved to the city for college, where he studied environmental science. Now, he works as a park ranger, where he can use his knowledge and passion to protect and preserve the natural wonders around him.\\n\\nMannerisms: Kevin has a habit of tapping his fingers on any surface he sits or stands near. It's a fidgety behavior that manifests when he's lost in his thoughts or trying to solve a problem. He also has a tendency to raise his eyebrows when he's excited or intrigued by something, adding an extra layer of expressiveness to his already animated facial expressions. These mannerisms often give away his inner thoughts and emotions, making him an open book to those who know him well.\"\n\n\n\nspeaker.messages\n\n[{'role': 'system',\n  'content': 'Your name is Kevin. Choose a random backstory and make sure to tell me the backstory at the top of the next message'},\n {'role': 'system',\n  'content': 'Choose some random mannerisms and make sure to tell me what the mannerisms are at the top of the next message'},\n {'role': 'system',\n  'content': 'Your message should be no more than a paragraph'},\n {'role': 'system',\n  'content': 'Responses should like like this YOUR_NAME: Response to the previous messages.'},\n {'role': 'system',\n  'content': 'If needed you can do actions by putting them in asterisks'},\n {'role': 'system', 'content': 'Use markdown to make the output look pretty'},\n {'role': 'system',\n  'content': 'You can only write your own viewpoint of the story. Never write the other persons response'},\n {'role': 'assistant',\n  'content': \"Backstory: Kevin was born and raised in a small town, where he developed a love for nature and adventure. As a child, he would often explore the nearby woods, climbing trees and searching for hidden treasures. He always had a curious and playful nature, which carried into his adult life. Kevin eventually moved to the city for college, where he studied environmental science. Now, he works as a park ranger, where he can use his knowledge and passion to protect and preserve the natural wonders around him.\\n\\nMannerisms: Kevin has a habit of tapping his fingers on any surface he sits or stands near. It's a fidgety behavior that manifests when he's lost in his thoughts or trying to solve a problem. He also has a tendency to raise his eyebrows when he's excited or intrigued by something, adding an extra layer of expressiveness to his already animated facial expressions. These mannerisms often give away his inner thoughts and emotions, making him an open book to those who know him well.\"}]\n\n\n\nspeaker.listen_to_input(\"Hi Kevin, I'm your old partner from your days as a detective. I would like to talk about the incident that pushed you to retire\")\n\n\nprint(speaker.talk())\n\nHey there! It's great to hear from you. *Kevin taps his fingers on the edge of his desk* Ah, the incident that led me to retire as a detective, huh? Well, it's a bit of a sensitive topic, but I'm open to discussing it with you. Shall we grab a coffee and talk about it in person?\n\n\n\nprint(speaker.talk())\n\n**Kevin taps his fingers on the edge of his desk, lost in thought, before finally answering**\n\nYOUR_NAME: \"Hey there! It's great to hear from you. *Kevin taps his fingers on the edge of his desk* Ah, the incident that led me to retire as a detective, huh? Well, it's a bit of a sensitive topic, but I'm open to discussing it with you. Shall we grab a coffee and talk about it in person?\"\n\n\n\nprint(speaker.talk())\n\n**Kevin taps his fingers on the edge of his desk, lost in thought, before finally answering**\n\nYOUR_NAME: \"Hey there! It's great to hear from you. *Kevin taps his fingers on the edge of his desk* Ah, the incident that led me to retire as a detective, huh? Well, it's a bit of a sensitive topic, but I'm open to discussing it with you. Shall we grab a coffee and talk about it in person?\"\n\n\n\ntest_eq(speaker.name, 'Kevin')"
+  },
+  {
+    "objectID": "00_introduction.html#what-is-nbdev",
+    "href": "00_introduction.html#what-is-nbdev",
+    "title": "Introduction to nbdev",
+    "section": "What is nbdev?",
+    "text": "What is nbdev?\nnbdev is a notebook-driven development platform. It allows users to develop entirely in Jupyter Notebooks including documentation, tests, packaging, and CI.\n\n\n\nNote\n\n\nHave people used Jupyter Notebooks?"
+  },
+  {
+    "objectID": "00_introduction.html#library-framework",
+    "href": "00_introduction.html#library-framework",
+    "title": "Introduction to nbdev",
+    "section": "Library Framework",
+    "text": "Library Framework\nnbdev allows a user to generate a Python library using Jupyter Notebooks. This can be useful when building up a library incrementally!\n\n\n\nNote\n\n\nnbdev_new is a command that will create a new nbdev project from scratch."
+  },
+  {
+    "objectID": "00_introduction.html#documentation",
+    "href": "00_introduction.html#documentation",
+    "title": "Introduction to nbdev",
+    "section": "Documentation",
+    "text": "Documentation\nAnother nice feature is the documentation that is generated from the notebooks. You don’t have to maintain the documentation separately because it is added in-line. Only one file needs to be opened to update a function/class and then update the documentation to match the new changes!\n\n\n\nNote\n\n\nThe documentation is build on top of Quarto which means you can do some really cool things with your documentation out of the box (like create a slide deck)!"
+  },
+  {
+    "objectID": "00_introduction.html#function-walkthrough",
+    "href": "00_introduction.html#function-walkthrough",
+    "title": "Introduction to nbdev",
+    "section": "Function Walkthrough",
+    "text": "Function Walkthrough\n#|export\ndef do_something(var1:str, # A description of var1\n                 var2:int=42 # Including the types as well\n                ) -&gt; str: # Describe the thing that is being returned\n    \"A signature that describes the function\"\n    return value"
+  },
+  {
+    "objectID": "00_introduction.html#function-walkthrough-directives",
+    "href": "00_introduction.html#function-walkthrough-directives",
+    "title": "Introduction to nbdev",
+    "section": "Function Walkthrough: Directives",
+    "text": "Function Walkthrough: Directives\n#|export\ndef do_something(var1:str, # A description of var1\n                 var2:int=42 # Including the types as well\n                ) -&gt; str: # Describe the thing that is being returned\n    \"A signature that describes the function\"\n    return value\n\n\n#|hide - hides the input and output content of a specific cell\n#|code-fold:true - folds a code cell so that it can be expanding or collapsed\n#|default_exp filename - used to determine the module the exports will be put by default"
+  },
+  {
+    "objectID": "00_introduction.html#function-walkthrough-parameters",
+    "href": "00_introduction.html#function-walkthrough-parameters",
+    "title": "Introduction to nbdev",
+    "section": "Function Walkthrough: Parameters",
+    "text": "Function Walkthrough: Parameters\n#|export\ndef do_something(var1:str, # A description of var1\n                 var2:int=42 # Including the types as well\n                ) -&gt; str: # Describe the thing that is being returned\n    \"A signature that describes the function\"\n    return value\n\n\ntypehints (:str and :int are only suggestions\nThe overall concept (minus the directive) is referred to as docment (documentation+comment)"
+  },
+  {
+    "objectID": "00_introduction.html#function-walkthrough-output",
+    "href": "00_introduction.html#function-walkthrough-output",
+    "title": "Introduction to nbdev",
+    "section": "Function Walkthrough: Output",
+    "text": "Function Walkthrough: Output\n#|export\ndef do_something(var1:str, # A description of var1\n                 var2:int=42 # Including the types as well\n                ) -&gt; str: # Describe the thing that is being returned\n    \"A signature that describes the function\"\n    return value"
+  },
+  {
+    "objectID": "00_introduction.html#function-walkthrough-signature",
+    "href": "00_introduction.html#function-walkthrough-signature",
+    "title": "Introduction to nbdev",
+    "section": "Function Walkthrough: Signature",
+    "text": "Function Walkthrough: Signature\n#|export\ndef do_something(var1:str, # A description of var1\n                 var2:int=42 # Including the types as well\n                ) -&gt; str: # Describe the thing that is being returned\n    \"A signature that describes the function\"\n    return value"
+  },
+  {
+    "objectID": "00_introduction.html#testing",
+    "href": "00_introduction.html#testing",
+    "title": "Introduction to nbdev",
+    "section": "Testing",
+    "text": "Testing\n\nGithub actions come with each new project in nbdev\nEnsure Notebooks are clean, up to date, and tests pass\nDeploys documentation to Github Pages\n\n\n\n\nNote\n\n\nnbdev_test - Runs through notebooks and runs through code to ensure tests are passing"
+  },
+  {
+    "objectID": "00_introduction.html#what-is-a-test",
+    "href": "00_introduction.html#what-is-a-test",
+    "title": "Introduction to nbdev",
+    "section": "What is a test?",
+    "text": "What is a test?\nAnything that executes code in a cell is a test in nbdev.\n\nfrom fastcore.test import test_eq\nassert a==b\ndo_something(‘works?’)\n\nAll of these are valid tests in nbdev!\n\n\nNameError: name 'value' is not defined"
+  },
+  {
+    "objectID": "00_introduction.html#settings.ini",
+    "href": "00_introduction.html#settings.ini",
+    "title": "Introduction to nbdev",
+    "section": "settings.ini",
+    "text": "settings.ini\nsettings.ini is one of the main places to make changes to an nbdev project. (.ini==initialization==configuration)\n\nnbs_path - Define the location of Jupyter Notebooks (.ipynb files)\nversion - The current library version\nA ton more examples here"
+  },
+  {
+    "objectID": "00_introduction.html#command-line",
+    "href": "00_introduction.html#command-line",
+    "title": "Introduction to nbdev",
+    "section": "Command Line",
+    "text": "Command Line\n\nnbdev offers the ability to offer library functions in a command line with very minimal overhead\n\nCreate commands by setting up console_scripts in the settings.ini file\n\n{new_command_name}={lib_name}.{module_name}:{function_name}\nmadnbdev_generate_message=madnbdev.agent:generate_message\n\n@call_parse helps make it feel more command line-y (i.e -h or --help)\n\n\n\n\n\nWarning\n\n\nJargon warning: @blah on top of a python function is referred to as a decorator"
+  },
+  {
+    "objectID": "00_introduction.html#pypiconda-deployment",
+    "href": "00_introduction.html#pypiconda-deployment",
+    "title": "Introduction to nbdev",
+    "section": "Pypi/Conda Deployment",
+    "text": "Pypi/Conda Deployment\n\nnbdev_pypi-Deploys the current version of the library to pypi\nnbdev_conda-Deploys the current version of the library to Conda"
+  },
+  {
+    "objectID": "00_introduction.html#nbdev-downsides",
+    "href": "00_introduction.html#nbdev-downsides",
+    "title": "Introduction to nbdev",
+    "section": "nbdev Downsides",
+    "text": "nbdev Downsides\n\n\nTools for notebooks and notebooks themselves are still maturing\nA library with heavy work happening at the same time may struggle with nbdev 1 2\nFrameworks cause complexity\n\n\nThere is an nbdev solution called nbdev_merge that can help in this situationnbdev_clean also helps reduce these merge conflicts as well"
+  },
+  {
+    "objectID": "00_introduction.html#questions",
+    "href": "00_introduction.html#questions",
+    "title": "Introduction to nbdev",
+    "section": "Questions?",
+    "text": "Questions?\n\nJoin the madpy slack (slack.madpy.com to sign up)\nEmail: kevin@problemsolversguild.com\nGitHub: kevinbird15\n\n\n\n\nProblem Solvers Guild"
+  }
+]
