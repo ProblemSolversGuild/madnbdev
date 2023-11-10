@@ -6,3 +6,5 @@ website:
       - 01_basic_example.ipynb
       - 02_API_Integration.ipynb
       - 03_dataclass.ipynb
+      - 04_bigram_test-partial.ipynb
+      - Untitled.ipynb
